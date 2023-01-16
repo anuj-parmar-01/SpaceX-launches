@@ -1,0 +1,43 @@
+
+.status_cell { 
+    width: 80px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.past_launch:hover {
+  cursor: pointer;
+}
+
+.empty {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+    margin: 20px 0;
+}
+.success {
+    color: green !important;
+    background: #ceffce;
+}
+.failed {
+    color: #be0808;
+    background-color: #ffdbdb;
+}
+
+.upcoming {
+    color: #9b282d;
+    background-color: #f5f587;
+}
+
+tbody td {
+    cursor: pointer;
+}
+.launch_list_container {
+    position: relative;
+  }
+  
+.launch_list_container button {
+    background-color: white;
+    border :none;
+}
+

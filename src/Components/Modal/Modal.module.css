@@ -1,0 +1,97 @@
+.head_container {
+    display : flex;
+    gap : 20px;
+   position: relative;
+}
+.head_desc {
+    font-size: 13px;
+}
+
+.modal_container {
+    width: 400px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 3px;
+    height: 500px;
+}
+
+.desc {
+    margin: 15px 0;
+    /* font-size: 12px; */
+    line-height: 22px;
+    letter-spacing: 1px;
+    max-height: 175px;
+    overflow: auto;
+    
+}
+
+.img_container {
+    width: 80px;
+    height: 80px
+}
+.img_container > img {
+    width: 100%;
+    height: 100%;
+}
+.link_container {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+.link_container a:hover {
+    cursor: pointer;
+}
+
+.link_container  img { 
+ width: 15px;
+ height: 15px;
+
+}
+.head_desc {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.close_btn {
+    position : absolute;
+    right: 0;
+    top: 0;
+    color: lightgrey;
+    background-color: white;
+    border: none;
+}
+
+.bg{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+}
+.success {
+    color: green !important;
+    background: #ceffce;
+}
+.failed {
+    color: #be0808;
+    background-color: #ffb8b8;
+}
+
+.upcoming {
+    color: #9b282d;
+    background-color: #fbfb81;
+}
+
+.status_cell {
+   
+    align-self: baseline;
+   padding: 5px;
+   font-size: 12px;
+    border-radius: 10px;
+}
