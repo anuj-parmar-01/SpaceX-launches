@@ -108,7 +108,7 @@ const pastLaunches= async() => {
           }
         </div>
       </div>
-      <TableContainer sx={{ width: '80%', margin: '0 auto', minHeight: '680px' }} component={Paper}>
+      <TableContainer sx={{ width: '75%', margin: '0 auto', minHeight: '680px' }} component={Paper}>
         <Table aria-label="customized table">
           <TableHead>
             <TableRow>
