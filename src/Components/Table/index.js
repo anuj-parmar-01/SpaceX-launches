@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useState , useEffect} from 'react'
-import { fetchLaunches, getPastLaunch } from '../../Utilities';
+import { capitalizeFirstLetter, fetchLaunches, getPastLaunch } from '../../Utilities';
 import style from './Table.module.css'
 import Modal from '../Modal'
 import { createPortal } from 'react-dom';
@@ -17,6 +17,7 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+import {useSearchParams} from 'react-router-dom'
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -54,6 +55,7 @@ export default function LaunchTable() {
   let [launchTypeSelected, setLaunchType] = useState('All Launches')
   let [activePage, setPage] = useState(1)
   let [loading, setLoading] = useState(false)
+ let [searchParams , setSearchParams] = useSearchParams()
 
   async function getLaunches(type){
     setLoading(true)
@@ -62,7 +64,8 @@ export default function LaunchTable() {
     setLaunches(data)
   }
 
-  const filterData = async (e) => {   
+  const filterData = async (e) => {  
+    setSearchParams({"filter" : e.target.innerText.toLowerCase()}) 
     setPage(1)
     setLaunchType(e.target.innerText)
     setDropDownStatus(!dropDownOpen)
@@ -70,11 +73,17 @@ export default function LaunchTable() {
   }
  
   useEffect( ()=> {  
-   getLaunches('All Launches')
+    let filterParams = searchParams.get('filter')? capitalizeFirstLetter(searchParams.get('filter')) :null;
+    let PastLaunches = searchParams.get('past')? searchParams.get('past') : null
+    console.log('past',PastLaunches, filterParams)
+   if(PastLaunches)  pastLaunches()
+   else getLaunches(filterParams|| 'All Launches')
+
   },[])
 
 const pastLaunches= async() => {
   setLoading(true)
+  setSearchParams({'past' : true})
    let data = await getPastLaunch()
    setLoading(false)
    setLaunches(data)

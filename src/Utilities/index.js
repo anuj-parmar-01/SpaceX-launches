@@ -40,3 +40,10 @@ export async function getPastLaunch() {
 
 }
 
+export function capitalizeFirstLetter (str) {
+  let capitalStr = str.split(' ')
+  let firstPart = capitalStr[0][0].toUpperCase() + capitalStr[0].slice(1)
+  let secondPart = capitalStr[1][0].toUpperCase() + capitalStr[1].slice(1)
+  return `${firstPart} ${secondPart}`
+}
+
